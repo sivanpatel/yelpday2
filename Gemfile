@@ -6,6 +6,7 @@ group :test do
   gem 'shoulda'
   gem 'rspec-collection_matchers'
 end
+gem 'devise'
 
 gem 'haml'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
