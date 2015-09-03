@@ -1,4 +1,5 @@
 require 'rails_helper'
+require_relative '../helpers/omniauth_helper'
 
 feature 'User can sign in and out' do
   context 'user not signed in and on the homepage' do
@@ -34,6 +35,26 @@ feature 'User can sign in and out' do
       expect(page).not_to have_link("Sign in")
       expect(page).not_to have_link("Sign up")
     end
+  end
+
+  context 'using facebook' do
+    it 'should see sign in with facebook link' do
+      visit '/'
+      expect(page).to have_link("Sign in with Facebook")
+    end
+
+  end
+
+  feature 'Sign in via Facebook' do
+
+    xscenario 'click login via facebook' do
+      visit '/'
+      set_omniauth()
+      click_link 'Sign in with Facebook'
+
+      page.should display_flash_message('Successfully authenticated from Facebook account.')
+    end
+
   end
 
 end
