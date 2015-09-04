@@ -16,7 +16,29 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require 'omniauth-facebook'
+
+
+
+
+
+
 RSpec.configure do |config|
+
+  OmniAuth.config.test_mode = true
+
+  # 
+  # OmniAuth.config.mock_auth[:facebook] = {
+  #  'user_info' => {
+  #    'name' => 'Mario Brothers',
+  #    'image' => '',
+  #    'email' => 'test@email.com' },
+  #  'uid' => '123545',
+  #  'provider' => 'facebook',
+  #  'credentials' => {'token' => 'token'}
+  # }
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
