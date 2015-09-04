@@ -47,14 +47,11 @@ feature 'User can sign in and out' do
 
   feature 'Sign in via Facebook' do
 
-    xscenario 'click login via facebook' do
+   scenario 'click login via facebook' do
       visit '/'
       set_omniauth()
       click_link 'Sign in with Facebook'
-
-      page.should display_flash_message('Successfully authenticated from Facebook account.')
+      expect(page).to have_content('Successfully authenticated from Facebook account.')
     end
-
   end
-
 end
